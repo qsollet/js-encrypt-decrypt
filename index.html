@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>js-encrypt-decrypt</title>
+        <script type="text/javascript" src="/vendor/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="/vendor/aes.js"></script>
+        <script type="text/javascript" src="/vendor/pbkdf2.js"></script>
+        <script type="text/javascript" src="/js/crypt.js"></script>
+        <script type="text/javascript" src="/js/action.js"></script>
+        <style media="screen">
+            input, textarea, button {
+                display: block;
+                margin: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="encrypt">
+            <div class="encrypt_input">
+                <h1>Encrypt</h1>
+
+                <textarea name="text" class="message" rows="8" cols="40" placeholder="Message to encrypt"></textarea>
+                <input type="text" name="secret" class="secret" value="" placeholder="Secret key">
+                <button class="action">Encrypt</button>
+            </div>
+
+            <div class="encrypt_result" style="display: none;">
+                <p>
+                    Encrypted message: <span class="message"></span>
+                </p>
+                <p>
+                    Encrypted salt: <span class="salt"></span>
+                </p>
+                <p>
+                    Encrypted iv: <span class="iv"></span>
+                </p>
+            </div>
+        </div>
+        <div class="decrypt">
+            <div class="decrypt_input">
+                <h1>Decrypt</h1>
+                <textarea name="text" class="message" rows="8" cols="40" placeholder="Message to decrypt"></textarea>
+                <input type="text" name="secret" class="secret" value="" placeholder="Secret key">
+                <input type="text" name="salt" class="salt" value="" placeholder="Salt">
+                <input type="text" name="iv" class="iv" value="" placeholder="iv">
+                <button class="action">Decrypt</button>
+            </div>
+
+            <div class="decrypt_result" style="display: none;">
+                <span>Decrypted message:</span>
+                <p class="message"></p>
+            </div>
+        </div>
+    </body>
+</html>
