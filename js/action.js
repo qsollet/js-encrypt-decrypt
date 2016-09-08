@@ -8,24 +8,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
             var result = encrypt(message, secret);
 
             var el = $('.encrypt_result');
-            el.find('.message').html(result.message);
-            el.find('.salt').html(result.salt);
-            el.find('.iv').html(result.iv);
-            el.show();
+            el.find('.message').html(JSON.stringify(result));
         } else if ($(this).html() == 'Decrypt') {
             var el = $('.decrypt_input');
             var secret = el.find('.secret').val();
-            var message = {
-                "message": el.find('.message').val(),
-                "salt": el.find('.salt').val(),
-                "iv": el.find('.iv').val()
-            };
-
+            var message = JSON.parse(el.find('.message').val());
             var result = decrypt(message, secret);
 
             var el = $('.decrypt_result');
             el.find('.message').html(result);
-            el.show();
         } else {
             console.log('Invalid Action');
         }
